@@ -20,7 +20,7 @@ export const HeadingXS = styled.h3`
 
 export const BodyL = styled.p`
 font-family: "BrandonText";
-  font-size: 32px;
+  font-size: 20px;
   margin: 0px;
   font-weight: 200;
 `
