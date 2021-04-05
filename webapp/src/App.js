@@ -1,21 +1,15 @@
 import './App.css';
-
+import {HeadingL, HeadingS, HeadingXS,BodyNormal, BodyS, BodyL} from "./components/Typography/Typographies"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeadingL>Your Incubators</HeadingL>
+      <HeadingS>Your Incubators</HeadingS>
+      <HeadingXS>Temperature</HeadingXS>
+      <BodyNormal>Preset: Chicken</BodyNormal>
+      <BodyS>33°C</BodyS>
+      <BodyL>33°C</BodyL>
+
     </div>
   );
 }
