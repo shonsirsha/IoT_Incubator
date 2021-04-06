@@ -9,3 +9,7 @@
   font-weight: bold;
   src: url("./fonts/BrandonTextBold.otf") format("opentype");
 }
+
+button:hover{
+  box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.077);
+}
