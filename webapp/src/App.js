@@ -17,7 +17,7 @@ import {
 } from "./components/Buttons/Buttons";
 
 import { Input } from "./components/Forms/Input";
-
+import { CardDevice } from "./components/Cards/CardDevice";
 function App() {
   return (
     <div className="App">
@@ -32,6 +32,7 @@ function App() {
       <ButtonText>Cancel</ButtonText>
       <ButtonTextDanger>Stop Incubator</ButtonTextDanger>
       <Input placeholder="37-39" />
+      <CardDevice />
     </div>
   );
 }

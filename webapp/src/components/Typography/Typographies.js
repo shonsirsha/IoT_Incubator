@@ -2,19 +2,19 @@ import styled from "styled-components";
 
 export const HeadingL = styled.h1`
   font-family: "BrandonTextBold";
-  font-size: 40px;
+  font-size: 32px;
   margin: 0px;
 `;
 export const HeadingS = styled.h2`
   font-family: "BrandonTextBold";
-  font-size: 32px;
+  font-size: 20px;
   margin: 0px;
 `;
 
 export const HeadingXS = styled.h3`
   font-family: "BrandonTextBold";
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
   margin: 0px;
 `;
 
