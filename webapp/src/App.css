@@ -10,6 +10,10 @@
   src: url("./fonts/BrandonTextBold.otf") format("opentype");
 }
 
-button:hover{
+button {
+  transition: all 300ms;
+}
+
+button:hover {
   box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.077);
 }

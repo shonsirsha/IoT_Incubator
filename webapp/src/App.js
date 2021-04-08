@@ -18,6 +18,8 @@ import {
 
 import { Input } from "./components/Forms/Input";
 import { CardDevice } from "./components/Cards/CardDevice";
+import { CardPreset } from "./components/Cards/CardPreset";
+
 function App() {
   return (
     <div className="App">
@@ -33,6 +35,7 @@ function App() {
       <ButtonTextDanger>Stop Incubator</ButtonTextDanger>
       <Input placeholder="37-39" />
       <CardDevice />
+      <CardPreset />
     </div>
   );
 }

@@ -25,6 +25,8 @@ export const ButtonText = styled.button`
   color: ${primary};
   background: none;
   border: none;
+  transition: all 300ms;
+
   text-decoration: underline;
   &:hover {
     box-shadow: unset;
