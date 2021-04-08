@@ -50,7 +50,7 @@ There's an intentional delay of around `10000ms` for the exchange of the data.
 
 ⭐&nbsp; The code for the IoT application is located is in the `./webapp` directory.  
 
-⭐&nbsp; It's mainly built using ReactJS for its frontend JS framework, and Bootstrap 4 for the CSS Framework.
+⭐&nbsp; It's mainly built using ReactJS as its frontend JS framework.
 
 ⭐&nbsp; Click <a href="#setup_frontend">here</a> to learn how to set-up the IoT Application locally
 
