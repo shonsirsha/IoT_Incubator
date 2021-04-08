@@ -17,7 +17,12 @@ export const HeadingXS = styled.h3`
   font-size: 16px;
   margin: 0px;
 `;
-
+export const BodyXL = styled.p`
+  font-family: "BrandonText";
+  font-size: 32px;
+  margin: 0px;
+  font-weight: 200;
+`;
 export const BodyL = styled.p`
   font-family: "BrandonText";
   font-size: 20px;

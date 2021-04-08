@@ -19,6 +19,7 @@ import {
 import { Input } from "./components/Forms/Input";
 import { CardDevice } from "./components/Cards/CardDevice";
 import { CardPreset } from "./components/Cards/CardPreset";
+import { CardCurrent } from "./components/Cards/CardCurrent";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       <Input placeholder="37-39" />
       <CardDevice />
       <CardPreset />
+      <CardCurrent />
     </div>
   );
 }
