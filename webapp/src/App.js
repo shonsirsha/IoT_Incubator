@@ -1,30 +1,41 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import styled from "styled-components";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/Pages/Home";
+import Login from "./components/Pages/Login";
 
 import {
-  HeadingL,
-  HeadingS,
-  HeadingXS,
-  BodyNormal,
-  BodyS,
-  BodyL,
+	HeadingL,
+	HeadingS,
+	HeadingXS,
+	BodyNormal,
+	BodyS,
+	BodyL,
 } from "./components/Typography/Typographies";
 import {
-  MainButton,
-  BackButton,
-  ButtonText,
-  ButtonTextDanger,
+	MainButton,
+	BackButton,
+	ButtonText,
+	ButtonTextDanger,
 } from "./components/Buttons/Buttons";
 
 import { Input } from "./components/Forms/Input";
 import { CardDevice } from "./components/Cards/CardDevice";
 import { CardPreset } from "./components/Cards/CardPreset";
 import { CardCurrent } from "./components/Cards/CardCurrent";
+const MobileContainer = styled.div`
+	max-width: 768px;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 40px 24px;
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <HeadingL>Your Incubators</HeadingL>
+	return (
+		<div className="App">
+			{/* <HeadingL>Your Incubators</HeadingL>
       <HeadingS>Your Incubators</HeadingS>
       <HeadingXS>Temperature</HeadingXS>
       <BodyNormal>Preset: Chicken</BodyNormal>
@@ -37,9 +48,18 @@ function App() {
       <Input placeholder="37-39" />
       <CardDevice />
       <CardPreset />
-      <CardCurrent />
-    </div>
-  );
+      <CardCurrent /> */}
+
+			<Router>
+				<Switch>
+					<Route path="/" exact component={Home} />
+					<MobileContainer>
+						<Route path="/sign-in" exact component={Login} />
+					</MobileContainer>
+				</Switch>
+			</Router>
+		</div>
+	);
 }
 
 export default App;

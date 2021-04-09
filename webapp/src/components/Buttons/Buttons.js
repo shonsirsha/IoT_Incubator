@@ -3,59 +3,63 @@ import { primary, danger } from "../Colours/Colours";
 import ArrowLeft from "./ArrowLeft.svg";
 
 export const MainButton = styled.button`
-  padding-top: 24px;
-  padding-bottom: 24px;
-  background: ${primary};
-  width: 100%;
-  color: #fff;
-  font-family: "BrandonTextBold";
-  font-size: 20px;
-  margin: 0px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 200;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	background: ${primary};
+	width: 100%;
+	color: #fff;
+	font-family: "BrandonTextBold";
+	font-size: 20px;
+	margin: 0px;
+	border: none;
+	border-radius: 16px;
+	font-weight: 200;
+	position: absolute;
+	bottom: 24px;
+	left: 24px;
+	width: calc(100vw - 48px);
 
-  &:active {
-    background: #36b982;
-  }
+	&:active {
+		background: #36b982;
+	}
 `;
 export const ButtonText = styled.button`
-  font-family: "BrandonText";
-  font-size: 16px;
-  color: ${primary};
-  background: none;
-  border: none;
-  transition: all 300ms;
+	font-family: "BrandonText";
+	font-size: 16px;
+	color: ${primary};
+	background: none;
+	border: none;
+	transition: all 300ms;
 
-  text-decoration: underline;
-  &:hover {
-    box-shadow: unset;
-    color: #12a165;
-  }
+	text-decoration: underline;
+	&:hover {
+		box-shadow: unset;
+		color: #12a165;
+	}
 `;
 export const ButtonTextDanger = styled.button`
-  color: ${danger};
-  font-family: "BrandonText";
-  font-size: 16px;
-  background: none;
-  border: none;
-  text-decoration: underline;
-  &:hover {
-    box-shadow: unset;
-    color: #9b0606;
-  }
+	color: ${danger};
+	font-family: "BrandonText";
+	font-size: 16px;
+	background: none;
+	border: none;
+	text-decoration: underline;
+	&:hover {
+		box-shadow: unset;
+		color: #9b0606;
+	}
 `;
 const StyledButton = styled.button`
-  border-radius: 30px;
-  padding: 8px 16px;
-  border: none;
-  background: ${primary};
+	border-radius: 30px;
+	padding: 8px 16px;
+	border: none;
+	background: ${primary};
 `;
 
 export const BackButton = ({ onClick }) => {
-  return (
-    <StyledButton onClick={onClick}>
-      <img src={ArrowLeft} alt="Back" />
-    </StyledButton>
-  );
+	return (
+		<StyledButton onClick={onClick}>
+			<img src={ArrowLeft} alt="Back" />
+		</StyledButton>
+	);
 };
