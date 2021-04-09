@@ -6,89 +6,89 @@ import Drop from "./Drop.svg";
 import CaretRight from "./CaretRight.svg";
 
 const CardDeviceContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: ${lighterSecondary};
-  padding: 24px;
-  border-radius: 10px;
-  &:hover {
-    cursor: pointer;
-  }
+	display: flex;
+	flex-direction: column;
+	background: ${lighterSecondary};
+	padding: 24px;
+	border-radius: 10px;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 const StatusContainer = styled.div`
-  display: flex;
-  color: ${(props) => (props.isonline ? "#18CD09" : "#DE0C0C")};
-  align-items: center;
+	display: flex;
+	color: ${(props) => (props.isonline ? "#18CD09" : "#DE0C0C")};
+	align-items: center;
 `;
 const StatusDot = styled.div`
-  border-radius: 100%;
-  background: ${(props) => (props.isonline ? "#18CD09" : "#DE0C0C")};
-  width: 12px;
-  height: 12px;
-  margin-right: 4px;
+	border-radius: 100%;
+	background: ${(props) => (props.isonline ? "#18CD09" : "#DE0C0C")};
+	width: 12px;
+	height: 12px;
+	margin-right: 4px;
 `;
 const ReadingsContainer = styled.div`
-  display: flex;
-  img {
-    width: 24px;
-    height: 24px;
-  }
+	display: flex;
+	img {
+		width: 24px;
+		height: 24px;
+	}
 `;
 const CardFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  img {
-    width: 20px;
-    height: 20px;
-  }
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	img {
+		width: 20px;
+		height: 20px;
+	}
 `;
 export const CardDevice = ({ isOnline = false }) => {
-  return (
-    <CardDeviceContainer>
-      <div className="d-flex justify-content-between align-items-center">
-        <HeadingS>D-CX-K-BK</HeadingS>
-        <StatusContainer isonline={isOnline}>
-          {isOnline ? (
-            <>
-              <StatusDot isonline={isOnline} />
-              <HeadingXS>ONLINE</HeadingXS>
-            </>
-          ) : (
-            <>
-              <StatusDot isonline={isOnline} />
-              <HeadingXS>OFFLINE</HeadingXS>
-            </>
-          )}
-        </StatusContainer>
-      </div>
-      <BodyNormal className="mt-1">Preset: Chicken</BodyNormal>
-      <div className="d-flex">
-        <ReadingsContainer className="mt-3 mr-4">
-          <img src={Thermometer} alt="Temperature" />
-          <div className="ml-2 d-flex flex-column">
-            <HeadingXS className="mb-1">Temperature</HeadingXS>
-            <BodyNormal>33°C</BodyNormal>
-          </div>
-        </ReadingsContainer>
-        <ReadingsContainer className="mt-3">
-          <img src={Drop} alt="Humidity" />
-          <div className="ml-2 d-flex flex-column">
-            <HeadingXS className="mb-1">Humidity</HeadingXS>
-            <BodyNormal>47%</BodyNormal>
-          </div>
-        </ReadingsContainer>
-      </div>
-      <CardFooter className="mt-3">
-        <div>
-          <BodyNormal>
-            <u>Stopped 5 days ago</u>
-          </BodyNormal>
-        </div>
-        <div>
-          <img src={CaretRight} alt="Right" />
-        </div>
-      </CardFooter>
-    </CardDeviceContainer>
-  );
+	return (
+		<CardDeviceContainer>
+			<div className="d-flex justify-content-between align-items-center">
+				<HeadingS>D-CX-K-BK</HeadingS>
+				<StatusContainer isonline={isOnline}>
+					{isOnline ? (
+						<>
+							<StatusDot isonline={isOnline} />
+							<HeadingXS>ONLINE</HeadingXS>
+						</>
+					) : (
+						<>
+							<StatusDot isonline={isOnline} />
+							<HeadingXS>OFFLINE</HeadingXS>
+						</>
+					)}
+				</StatusContainer>
+			</div>
+			<BodyNormal className="mt-1">Preset: Chicken</BodyNormal>
+			<div className="d-flex">
+				<ReadingsContainer className="mt-3 mr-4">
+					<img src={Thermometer} alt="Temperature" />
+					<div className="ml-2 d-flex flex-column">
+						<HeadingXS className="mb-1">Temperature</HeadingXS>
+						<BodyNormal>33°C</BodyNormal>
+					</div>
+				</ReadingsContainer>
+				<ReadingsContainer className="mt-3">
+					<img src={Drop} alt="Humidity" />
+					<div className="ml-2 d-flex flex-column">
+						<HeadingXS className="mb-1">Humidity</HeadingXS>
+						<BodyNormal>47%</BodyNormal>
+					</div>
+				</ReadingsContainer>
+			</div>
+			<CardFooter className="mt-3">
+				<div>
+					<BodyNormal>
+						<u>Stopped 5 days ago</u>
+					</BodyNormal>
+				</div>
+				<div>
+					<img src={CaretRight} alt="Right" />
+				</div>
+			</CardFooter>
+		</CardDeviceContainer>
+	);
 };

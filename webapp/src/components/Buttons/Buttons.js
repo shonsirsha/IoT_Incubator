@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { primary, danger } from "../Colours/Colours";
+import { primary, danger, secondary } from "../Colours/Colours";
 import ArrowLeft from "./ArrowLeft.svg";
 
-export const MainButton = styled.button`
+export const StyledMainButton = styled.button`
 	padding-top: 16px;
 	padding-bottom: 16px;
-	background: ${primary};
+	background: ${(props) => (props.disabled ? secondary : primary)};
 	width: 100%;
 	color: #fff;
 	font-family: "BrandonTextBold";
@@ -16,11 +16,12 @@ export const MainButton = styled.button`
 	font-weight: 200;
 	position: absolute;
 	bottom: 24px;
-	left: 24px;
-	width: calc(100vw - 48px);
-
+	width: calc(100% - 48px);
 	&:active {
 		background: #36b982;
+	}
+	&:hover {
+		cursor: ${(props) => (props.disabled ? `not-allowed` : `pointer`)};
 	}
 `;
 export const ButtonText = styled.button`
@@ -55,7 +56,13 @@ const StyledButton = styled.button`
 	border: none;
 	background: ${primary};
 `;
-
+export const MainButton = ({ text, type = "button", disabled }) => {
+	return (
+		<StyledMainButton type={type} disabled={disabled}>
+			{text}
+		</StyledMainButton>
+	);
+};
 export const BackButton = ({ onClick }) => {
 	return (
 		<StyledButton onClick={onClick}>

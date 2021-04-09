@@ -27,9 +27,12 @@ import { CardCurrent } from "./components/Cards/CardCurrent";
 const MobileContainer = styled.div`
 	max-width: 768px;
 	display: flex;
+	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 40px 24px;
+	min-height: 100vh;
+	padding-bottom: 116px;
 `;
 
 function App() {

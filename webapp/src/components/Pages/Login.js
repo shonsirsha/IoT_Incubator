@@ -33,7 +33,8 @@ const Login = () => {
 					caption="Password must be at least 6 characters long"
 				/>
 			</div>
-			<MainButton>Sign In</MainButton>
+
+			<MainButton type="submit" text="Sign In" disabled />
 		</div>
 	);
 };
