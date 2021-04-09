@@ -56,9 +56,9 @@ const StyledButton = styled.button`
 	border: none;
 	background: ${primary};
 `;
-export const MainButton = ({ text, type = "button", disabled }) => {
+export const MainButton = ({ text, type = "button", disabled, onClick }) => {
 	return (
-		<StyledMainButton type={type} disabled={disabled}>
+		<StyledMainButton type={type} disabled={disabled} onClick={onClick}>
 			{text}
 		</StyledMainButton>
 	);

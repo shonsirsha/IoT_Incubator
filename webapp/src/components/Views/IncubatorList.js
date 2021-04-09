@@ -23,13 +23,12 @@ const IncubatorList = () => {
 				) : (
 					<div className="d-flex flex-column">
 						<EggChickenIcon alt="Chicken Icon" src={EggChicken} />
-						<HeadingL className="text-center mt-3">
+						<HeadingL className="text-center mt-4">
 							Looks like you have no incubator set up yet...
 						</HeadingL>
 					</div>
 				)}
 			</>
-			<MainButton text="Set Up a New Incubator" />
 		</div>
 	);
 };
