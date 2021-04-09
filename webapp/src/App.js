@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import Login from "./components/Pages/Login";
+import MainApp from "./components/Pages/MainApp";
+import AuthState from "./context/auth/AuthState";
 
 import {
 	HeadingL,
@@ -52,15 +54,17 @@ function App() {
       <CardDevice />
       <CardPreset />
       <CardCurrent /> */}
-
-			<Router>
-				<Switch>
-					<Route path="/" exact component={Home} />
-					<MobileContainer>
-						<Route path="/sign-in" exact component={Login} />
-					</MobileContainer>
-				</Switch>
-			</Router>
+			<AuthState>
+				<Router>
+					<Switch>
+						<Route path="/" exact component={Home} />
+						<MobileContainer>
+							<Route path="/sign-in" exact component={Login} />
+							<Route path="/app" exact component={MainApp} />
+						</MobileContainer>
+					</Switch>
+				</Router>
+			</AuthState>
 		</div>
 	);
 }
