@@ -44,7 +44,9 @@ const AuthState = (props) => {
 					payload: "Wrong Password",
 				});
 			}
-			alert(error.code);
+			alert(
+				"Oops, we can't find the user with that credentials. Please try again."
+			);
 			stopLoading();
 		}
 		stopLoading();
