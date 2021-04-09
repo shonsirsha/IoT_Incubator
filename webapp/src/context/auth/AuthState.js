@@ -3,13 +3,20 @@ import AuthContext from "./authContext";
 import AuthReducer from "./authReducer";
 import { db, auth, firebase } from "../../firebase";
 
-import { SIGN_IN_FAIL, SET_LOADING, STOP_LOADING, USER_AUTH } from "./types";
+import {
+	SIGN_IN_FAIL,
+	SET_LOADING,
+	STOP_LOADING,
+	USER_AUTH,
+	SIGNED_OUT,
+} from "./types";
 
 const AuthState = (props) => {
 	const initialState = {
 		currentUser: null,
 		authLoading: true,
 		authErrorMsg: "",
+		incubators: [],
 	};
 
 	const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -52,6 +59,20 @@ const AuthState = (props) => {
 		stopLoading();
 	};
 
+	const signOut = async () => {
+		startLoading();
+		try {
+			await auth.signOut();
+
+			dispatch({
+				type: SIGNED_OUT,
+			});
+		} catch (err) {
+			console.log("auth logout error");
+		}
+		stopLoading();
+	};
+
 	const startLoading = () => {
 		dispatch({
 			type: SET_LOADING,
@@ -69,7 +90,9 @@ const AuthState = (props) => {
 				currentUser: state.currentUser,
 				authLoading: state.authLoading,
 				authErrorMsg: state.authErrorMsg,
+				incubators: state.incubators,
 				handleSignIn,
+				signOut,
 			}}
 		>
 			{props.children}

@@ -26,7 +26,7 @@ export const StyledMainButton = styled.button`
 `;
 export const ButtonText = styled.button`
 	font-family: "BrandonText";
-	font-size: 16px;
+	font-size: 20px;
 	color: ${primary};
 	background: none;
 	border: none;
@@ -41,7 +41,7 @@ export const ButtonText = styled.button`
 export const ButtonTextDanger = styled.button`
 	color: ${danger};
 	font-family: "BrandonText";
-	font-size: 16px;
+	font-size: 20px;
 	background: none;
 	border: none;
 	text-decoration: underline;
