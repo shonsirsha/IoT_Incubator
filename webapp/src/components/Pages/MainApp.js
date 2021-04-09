@@ -82,7 +82,9 @@ const MainApp = () => {
 							/>
 							<div
 								className={`d-flex flex-column w-100 ${
-									!backBtn && incubators.length === 0 ? `m-auto` : `mt-4`
+									id === "DEVICELIST" && incubators.length === 0
+										? `m-auto`
+										: `mt-4`
 								}`}
 							>
 								{el}
