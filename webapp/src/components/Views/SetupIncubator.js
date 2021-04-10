@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import IncubatorContext from "../../context/incubator/incubatorContext";
 import { Form } from "react-bootstrap";
 import { Input } from "../Forms/Input";
@@ -48,8 +49,8 @@ const HatchPreset = [
 ];
 const SetupIncubator = () => {
 	const incubatorContext = useContext(IncubatorContext);
-
 	const { setupIncubator, incubatorLoading } = incubatorContext;
+	const history = useHistory();
 
 	const [data, setData] = useState({
 		deviceName: "",
@@ -90,6 +91,7 @@ const SetupIncubator = () => {
 						e.preventDefault();
 						// console.log({ ...data, createdAt: Date.now() });
 						await setupIncubator({ ...data, createdAt: Date.now() });
+						history.push("/sign-in");
 					}}
 				>
 					<Input
