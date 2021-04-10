@@ -18,17 +18,15 @@ export function timeDifference(current, previous) {
 		return Math.round(elapsed / msPerHour) + " hours ago";
 	} else if (elapsed < msPerMonth) {
 		return (
-			"around " +
 			Math.round(elapsed / msPerDay) +
 			` ${Math.round(elapsed / msPerMinute) > 1 ? `days` : `day`} ago`
 		);
 	} else if (elapsed < msPerYear) {
 		return (
-			"around " +
 			Math.round(elapsed / msPerMonth) +
 			` ${Math.round(elapsed / msPerMinute) > 1 ? `months` : `month`} ago`
 		);
 	} else {
-		return "around " + Math.round(elapsed / msPerYear) + " years ago";
+		return Math.round(elapsed / msPerYear) + " years ago";
 	}
 }

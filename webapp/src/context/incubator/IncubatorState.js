@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer } from "react";
 import IncubatorContext from "./incubatorContext";
 import IncubatorReducer from "./incubatorReducer";
 import { db } from "../../firebase";
@@ -39,7 +39,7 @@ const IncubatorState = (props) => {
 			if (data) {
 				const keys = Object.keys(data);
 				keys.map((k) => {
-					incArr.push(data[k]);
+					return incArr.push(data[k]);
 				});
 				dispatch({
 					type: GET_INCUBATORS,
