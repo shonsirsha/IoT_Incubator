@@ -16,12 +16,12 @@ const IncubatorList = ({ btnFunc }) => {
 	const authContext = useContext(AuthContext);
 	const { incubators } = authContext;
 	return (
-		<div className="d-flex flex-column">
+		<div className="d-flex flex-column my-auto ">
 			<>
 				{incubators.length > 0 ? (
 					<HeadingL>Wowsie</HeadingL>
 				) : (
-					<div className="d-flex flex-column">
+					<div className="d-flex flex-column ">
 						<EggChickenIcon alt="Chicken Icon" src={EggChicken} />
 						<HeadingL className="text-center mt-4">
 							Looks like you have not set up any incubator yet...

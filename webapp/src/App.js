@@ -6,6 +6,7 @@ import Home from "./components/Pages/Home";
 import Login from "./components/Pages/Login";
 import MainApp from "./components/Pages/MainApp";
 import AuthState from "./context/auth/AuthState";
+import IncubatorState from "./context/incubator/IncubatorState";
 
 import {
 	HeadingL,
@@ -55,15 +56,17 @@ function App() {
       <CardPreset />
       <CardCurrent /> */}
 			<AuthState>
-				<Router>
-					<Switch>
-						<Route path="/" exact component={Home} />
-						<MobileContainer>
-							<Route path="/sign-in" exact component={Login} />
-							<Route path="/app" exact component={MainApp} />
-						</MobileContainer>
-					</Switch>
-				</Router>
+				<IncubatorState>
+					<Router>
+						<Switch>
+							<Route path="/" exact component={Home} />
+							<MobileContainer>
+								<Route path="/sign-in" exact component={Login} />
+								<Route path="/app" exact component={MainApp} />
+							</MobileContainer>
+						</Switch>
+					</Router>
+				</IncubatorState>
 			</AuthState>
 		</div>
 	);

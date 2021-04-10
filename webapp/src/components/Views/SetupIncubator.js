@@ -1,10 +1,19 @@
 import React, { useState, useContext } from "react";
-import AuthContext from "../../context/auth/authContext";
+import IncubatorContext from "../../context/incubator/incubatorContext";
 import { Form } from "react-bootstrap";
 import { Input } from "../Forms/Input";
 import { BodyNormal } from "../Typography/Typographies";
 import { CardPreset } from "../Cards/CardPreset";
 import { MainButton } from "../Buttons/Buttons";
+import styled from "styled-components";
+import spinner from "../../loading.gif";
+
+const StyledSpinner = styled.img`
+	width: 48px;
+	height: 48px;
+	margin: auto;
+`;
+
 const HatchPreset = [
 	{
 		id: "CH",
@@ -38,15 +47,26 @@ const HatchPreset = [
 	},
 ];
 const SetupIncubator = () => {
-	const [selectedPreset, setSelectedPreset] = useState("CH");
+	const incubatorContext = useContext(IncubatorContext);
+
+	const { setupIncubator, incubatorLoading } = incubatorContext;
+
 	const [data, setData] = useState({
 		deviceName: "",
-		hatchPresetDetail: null,
+		hatchPreset: {
+			id: "CH",
+			name: "Chicken",
+			minTemp: 37,
+			maxTemp: 39,
+			minHum: 50,
+			maxHum: 60,
+			minDays: -1,
+			maxDays: 21,
+		},
 	});
 	const onSelect = (id) => {
-		setSelectedPreset(id);
 		let hatchP = HatchPreset.filter((d) => d.id === id);
-		setData({ ...data, hatchPresetDetail: hatchP });
+		setData({ ...data, hatchPreset: hatchP[0] });
 	};
 	const onChange = (e) => {
 		let deviceName = e.target.value
@@ -61,38 +81,46 @@ const SetupIncubator = () => {
 
 	// const authContext = useContext(AuthContext);
 	return (
-		<div className="d-flex flex-column">
-			<Form
-				onSubmit={(e) => {
-					e.preventDefault();
-				}}
-			>
-				<Input
-					title={"Device Name"}
-					placeholder={"DEVICE-123"}
-					name="deviceName"
-					className="mb-4"
-					value={data.deviceName}
-					onChange={(e) => onChange(e)}
-					caption={"Device name can only contain letters, numbers, and hyphens"}
-				/>
-				<BodyNormal className="mb-3">Hatch Preset</BodyNormal>
-				{HatchPreset.map((d, ix) => (
-					<CardPreset
-						className={ix !== HatchPreset.length - 1 && "mb-4"}
-						name={d.name}
-						maxTemp={d.maxTemp}
-						minTemp={d.minTemp}
-						maxHum={d.maxHum}
-						minHum={d.minHum}
-						maxDays={d.maxDays}
-						minDays={d.minDays}
-						selected={d.id === selectedPreset}
-						onSelect={() => onSelect(d.id)}
+		<div className="d-flex flex-column my-auto">
+			{incubatorLoading ? (
+				<StyledSpinner src={spinner} alt="Loading..." />
+			) : (
+				<Form
+					onSubmit={async (e) => {
+						e.preventDefault();
+						// console.log({ ...data, createdAt: Date.now() });
+						await setupIncubator({ ...data, createdAt: Date.now() });
+					}}
+				>
+					<Input
+						title={"Device Name"}
+						placeholder={"DEVICE-123"}
+						name="deviceName"
+						className="mb-4"
+						value={data.deviceName}
+						onChange={(e) => onChange(e)}
+						caption={
+							"Device name can only contain letters, numbers, and hyphens"
+						}
 					/>
-				))}
-				<MainButton text={"Set Up Incubator"} type={"button"} />
-			</Form>
+					<BodyNormal className="mb-3">Hatch Preset</BodyNormal>
+					{HatchPreset.map((d, ix) => (
+						<CardPreset
+							className={ix !== HatchPreset.length - 1 && "mb-4"}
+							name={d.name}
+							maxTemp={d.maxTemp}
+							minTemp={d.minTemp}
+							maxHum={d.maxHum}
+							minHum={d.minHum}
+							maxDays={d.maxDays}
+							minDays={d.minDays}
+							selected={d.id === data.hatchPreset.id}
+							onSelect={() => onSelect(d.id)}
+						/>
+					))}
+					<MainButton text={"Set Up Incubator"} type={"submit"} />
+				</Form>
+			)}
 		</div>
 	);
 };

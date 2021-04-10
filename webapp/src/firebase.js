@@ -10,11 +10,12 @@ const app = firebase.initializeApp({
 	messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
 	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 	measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+	databaseURL: process.env.REACT_APP_DATABASE_URL,
 });
 
-const db = firebase.firestore();
+const db = firebase.database();
 const auth = firebase.auth();
 
-db.enablePersistence();
+// db.enablePersistence();
 
 export { db, auth, app, firebase };

@@ -69,15 +69,7 @@ const MainApp = () => {
 								backBtn={backBtn}
 								goBack={back}
 							/>
-							<div
-								className={`d-flex flex-column w-100 ${
-									id === "DEVICELIST" && incubators.length === 0
-										? `m-auto`
-										: `mt-4`
-								}`}
-							>
-								{el}
-							</div>
+							<div className={`d-flex flex-column w-100 h-100 mt-4`}>{el}</div>
 						</div>
 					)}
 				</>

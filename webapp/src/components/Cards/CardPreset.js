@@ -104,7 +104,15 @@ export const CardPreset = ({
 		>
 			<div className="d-flex justify-content-between mb-3">
 				<HeadingS>{name}</HeadingS>
-				<BodyNormal>14-17 days</BodyNormal>
+				{minDays === -1 ? (
+					<BodyNormal>{maxDays} days</BodyNormal>
+				) : (
+					<>
+						<BodyNormal>
+							{minDays} - {maxDays} days
+						</BodyNormal>
+					</>
+				)}
 			</div>
 			<div className="d-flex">
 				<div className="ml-1 d-flex flex-column mr-4">
