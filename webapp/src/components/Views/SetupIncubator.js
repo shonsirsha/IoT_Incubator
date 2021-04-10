@@ -90,8 +90,13 @@ const SetupIncubator = () => {
 					onSubmit={async (e) => {
 						e.preventDefault();
 						// console.log({ ...data, createdAt: Date.now() });
-						await setupIncubator({ ...data, createdAt: Date.now() });
-						history.push("/sign-in");
+						const created = await setupIncubator({
+							...data,
+							createdAt: Date.now(),
+						});
+						if (created) {
+							history.push("/sign-in");
+						}
 					}}
 				>
 					<Input
@@ -120,7 +125,11 @@ const SetupIncubator = () => {
 							onSelect={() => onSelect(d.id)}
 						/>
 					))}
-					<MainButton text={"Set Up Incubator"} type={"submit"} />
+					<MainButton
+						text={"Set Up Incubator"}
+						type={"submit"}
+						disabled={data.deviceName.length < 1}
+					/>
 				</Form>
 			)}
 		</div>

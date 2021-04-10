@@ -13,12 +13,18 @@ const IncubatorState = (props) => {
 
 	const [state, dispatch] = useReducer(IncubatorReducer, initialState);
 
+	const checkIfExists = async (deviceName) => {
+		const v = await db.ref(deviceName).get();
+
+		return v.exists();
+	};
+
 	const setupIncubator = async (data) => {
 		startLoading();
 		const { deviceName, createdAt, hatchPreset } = data;
-		await db
-			.ref(deviceName)
-			.set({
+		const exists = await checkIfExists(deviceName);
+		if (!exists) {
+			await db.ref(deviceName).set({
 				createdAt,
 				hatchPreset,
 				deviceName,
@@ -26,8 +32,17 @@ const IncubatorState = (props) => {
 				currentTemp: -100,
 				currentHum: -100,
 			});
-		stopLoading();
+			stopLoading();
+			return true;
+		} else {
+			alert(
+				"Please use a different name (one of your incubators already uses this name)"
+			);
+			stopLoading();
+			return false;
+		}
 	};
+
 	const startLoading = () => {
 		dispatch({
 			type: SET_LOADING,
@@ -45,6 +60,7 @@ const IncubatorState = (props) => {
 				incubators: state.incubators,
 				incubatorLoading: state.incubatorLoading,
 				setupIncubator,
+				checkIfExists,
 			}}
 		>
 			{props.children}
