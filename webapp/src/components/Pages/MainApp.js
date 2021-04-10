@@ -21,17 +21,16 @@ const MainApp = () => {
 	const [view, setView] = useState({
 		id: "DEVICELIST",
 		title: "Your Incubators",
-		mainBtnText: "Set Up a New Incubator",
-		el: <IncubatorList />,
+		el: <IncubatorList btnFunc={() => toSetupnewIncubator(id)} />,
 		backBtn: false,
 	});
-	const { el, title, backBtn, mainBtnText, id } = view;
+	const { el, title, backBtn, id } = view;
 	const back = () => {
 		setView({
 			id: "DEVICELIST",
 			title: "Your Incubators",
 			mainBtnText: "Set Up a New Incubator",
-			el: <IncubatorList />,
+			el: <IncubatorList btnFunc={() => toSetupnewIncubator(id)} />,
 			backBtn: false,
 		});
 	};
@@ -54,14 +53,6 @@ const MainApp = () => {
 		});
 	};
 
-	const mainBtnFunc = (id) => {
-		switch (id) {
-			case "DEVICELIST":
-				toSetupnewIncubator();
-			default:
-				return;
-		}
-	};
 	return (
 		<>
 			{authLoading ? (
@@ -88,13 +79,6 @@ const MainApp = () => {
 								}`}
 							>
 								{el}
-
-								{mainBtnText.length > 0 && (
-									<MainButton
-										text={mainBtnText}
-										onClick={() => mainBtnFunc(id)}
-									/>
-								)}
 							</div>
 						</div>
 					)}

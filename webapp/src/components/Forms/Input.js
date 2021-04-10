@@ -27,18 +27,21 @@ export const Input = ({
 	title,
 	placeholder,
 	caption,
-	type,
+	type = "text",
 	name,
 	onChange,
+	className,
+	value,
 }) => {
 	return (
-		<InputContainer>
+		<InputContainer className={className}>
 			<Title>{title}</Title>
 			<StyledInput
 				placeholder={placeholder}
 				type={type}
 				onChange={onChange}
 				name={name}
+				value={value}
 			/>
 			<Reminder>{caption}</Reminder>
 		</InputContainer>

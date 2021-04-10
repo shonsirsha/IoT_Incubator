@@ -12,7 +12,7 @@ const EggChickenIcon = styled.img`
 	margin-left: auto;
 	margin-right: auto;
 `;
-const IncubatorList = () => {
+const IncubatorList = ({ btnFunc }) => {
 	const authContext = useContext(AuthContext);
 	const { incubators } = authContext;
 	return (
@@ -24,8 +24,10 @@ const IncubatorList = () => {
 					<div className="d-flex flex-column">
 						<EggChickenIcon alt="Chicken Icon" src={EggChicken} />
 						<HeadingL className="text-center mt-4">
-							Looks like you have no incubator set up yet...
+							Looks like you have not set up any incubator yet...
 						</HeadingL>
+
+						<MainButton text={"Set Up a New Incubator"} onClick={btnFunc} />
 					</div>
 				)}
 			</>

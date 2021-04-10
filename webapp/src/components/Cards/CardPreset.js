@@ -84,11 +84,26 @@ const Thermometer = (
 	</svg>
 );
 
-export const CardPreset = ({ isOnline = false }) => {
+export const CardPreset = ({
+	className,
+	name,
+	maxTemp,
+	minTemp,
+	maxHum,
+	minHum,
+	maxDays,
+	minDays,
+	selected = false,
+	onSelect,
+}) => {
 	return (
-		<CardPresetontainer>
+		<CardPresetontainer
+			onClick={onSelect}
+			className={className}
+			selected={selected}
+		>
 			<div className="d-flex justify-content-between mb-3">
-				<HeadingS>Chicken</HeadingS>
+				<HeadingS>{name}</HeadingS>
 				<BodyNormal>14-17 days</BodyNormal>
 			</div>
 			<div className="d-flex">
@@ -98,8 +113,15 @@ export const CardPreset = ({ isOnline = false }) => {
 
 						<div className="ml-2 d-flex flex-column">
 							<HeadingXS className="mb-1">Temperature</HeadingXS>
-
-							<BodyNormal>33°C</BodyNormal>
+							{minTemp === -1 ? (
+								<BodyNormal>{maxTemp}°C</BodyNormal>
+							) : (
+								<>
+									<BodyNormal>
+										{minTemp}°C - {maxTemp}°C
+									</BodyNormal>
+								</>
+							)}
 						</div>
 					</div>
 				</div>
@@ -110,7 +132,15 @@ export const CardPreset = ({ isOnline = false }) => {
 						<div className="ml-2 d-flex flex-column">
 							<HeadingXS className="mb-1">Humidity</HeadingXS>
 
-							<BodyNormal>57%</BodyNormal>
+							{minTemp === -1 ? (
+								<BodyNormal>{maxHum}%</BodyNormal>
+							) : (
+								<>
+									<BodyNormal>
+										{minHum}% - {maxHum}%
+									</BodyNormal>
+								</>
+							)}
 						</div>
 					</div>
 				</div>
