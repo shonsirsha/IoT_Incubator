@@ -52,6 +52,7 @@ const SetupIncubator = () => {
 		let deviceName = e.target.value
 			.toUpperCase()
 			.replace(/\s/g, "")
+			// eslint-disable-next-line
 			.replace(/[`~!@#$%^&*()_|+\=?;:'",.<>\{\}\[\]\\\/]/gi, "");
 		if (deviceName.length <= 24) {
 			setData({ ...data, [e.target.name]: deviceName });

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { primary, danger, secondary } from "../Colours/Colours";
 import ArrowLeft from "./ArrowLeft.svg";
-
+import Home from "./Home.svg";
 export const StyledMainButton = styled.button`
 	padding-top: 16px;
 	padding-bottom: 16px;
@@ -52,9 +52,13 @@ export const ButtonTextDanger = styled.button`
 `;
 const StyledButton = styled.button`
 	border-radius: 30px;
-	padding: 8px 16px;
+	padding: 10px 12px;
 	border: none;
 	background: ${primary};
+	img {
+		height: 24px;
+		width: 24px;
+	}
 `;
 export const MainButton = ({ text, type = "button", disabled, onClick }) => {
 	return (
@@ -66,7 +70,7 @@ export const MainButton = ({ text, type = "button", disabled, onClick }) => {
 export const BackButton = ({ onClick }) => {
 	return (
 		<StyledButton onClick={onClick}>
-			<img src={ArrowLeft} alt="Back" />
+			<img src={Home} alt="Home" />
 		</StyledButton>
 	);
 };

@@ -5,10 +5,8 @@ import Header from "../Header/Header";
 import IncubatorList from "../../components/Views/IncubatorList";
 import Profile from "../../components/Views/Profile";
 import SetupIncubator from "../../components/Views/SetupIncubator";
-
 import spinner from "../../loading.gif";
 import styled from "styled-components";
-import { MainButton } from "../Buttons/Buttons";
 
 const StyledSpinner = styled.img`
 	width: 48px;
