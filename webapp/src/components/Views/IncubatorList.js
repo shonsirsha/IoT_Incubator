@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { HeadingL } from "../../components/Typography/Typographies";
 import { MainButton } from "../Buttons/Buttons";
 import styled from "styled-components";
-import AuthContext from "../../context/auth/authContext";
+// import AuthContext from "../../context/auth/authContext";
+import IncubatorContext from "../../context/incubator/incubatorContext";
 import EggChicken from "./EggChicken.svg";
 
 const EggChickenIcon = styled.img`
@@ -13,8 +14,9 @@ const EggChickenIcon = styled.img`
 	margin-right: auto;
 `;
 const IncubatorList = ({ btnFunc }) => {
-	const authContext = useContext(AuthContext);
-	const { incubators } = authContext;
+	// const authContext = useContext(AuthContext);
+	const incubatorContext = useContext(IncubatorContext);
+	const { incubators } = incubatorContext;
 	return (
 		<div className="d-flex flex-column my-auto ">
 			<>

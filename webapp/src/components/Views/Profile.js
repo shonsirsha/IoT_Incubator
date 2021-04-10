@@ -3,6 +3,7 @@ import { BodyNormal } from "../../components/Typography/Typographies";
 import { ButtonTextDanger } from "../Buttons/Buttons";
 import styled from "styled-components";
 import AuthContext from "../../context/auth/authContext";
+import IncubatorContext from "../../context/incubator/incubatorContext";
 
 const StyledBtnTextDanger = styled(ButtonTextDanger)`
 	position: absolute;
@@ -10,7 +11,9 @@ const StyledBtnTextDanger = styled(ButtonTextDanger)`
 `;
 const Profile = () => {
 	const authContext = useContext(AuthContext);
-	const { signOut, incubators } = authContext;
+	const { signOut } = authContext;
+	const incubatorContext = useContext(IncubatorContext);
+	const { incubators } = incubatorContext;
 	return (
 		<div className="d-flex flex-column">
 			<BodyNormal>

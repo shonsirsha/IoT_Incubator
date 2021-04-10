@@ -16,7 +16,6 @@ const AuthState = (props) => {
 		currentUser: null,
 		authLoading: true,
 		authErrorMsg: "",
-		incubators: [],
 	};
 
 	const [state, dispatch] = useReducer(AuthReducer, initialState);
