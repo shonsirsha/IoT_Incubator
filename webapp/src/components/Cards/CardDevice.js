@@ -43,11 +43,19 @@ const CardFooter = styled.div`
 		height: 20px;
 	}
 `;
-export const CardDevice = ({ isOnline = false }) => {
+export const CardDevice = ({
+	deviceName,
+	isOnline,
+	className,
+	currentHum,
+	currentTemp,
+	hatchPreset,
+	createdAt,
+}) => {
 	return (
-		<CardDeviceContainer>
+		<CardDeviceContainer className={className}>
 			<div className="d-flex justify-content-between align-items-center">
-				<HeadingS>D-CX-K-BK</HeadingS>
+				<HeadingS>{deviceName}</HeadingS>
 				<StatusContainer isonline={isOnline}>
 					{isOnline ? (
 						<>
@@ -62,27 +70,27 @@ export const CardDevice = ({ isOnline = false }) => {
 					)}
 				</StatusContainer>
 			</div>
-			<BodyNormal className="mt-1">Preset: Chicken</BodyNormal>
+			<BodyNormal className="mt-1">Preset: {hatchPreset}</BodyNormal>
 			<div className="d-flex">
 				<ReadingsContainer className="mt-3 mr-4">
 					<img src={Thermometer} alt="Temperature" />
 					<div className="ml-2 d-flex flex-column">
 						<HeadingXS className="mb-1">Temperature</HeadingXS>
-						<BodyNormal>33°C</BodyNormal>
+						<BodyNormal>{isOnline ? currentTemp + "°C" : "-"}</BodyNormal>
 					</div>
 				</ReadingsContainer>
 				<ReadingsContainer className="mt-3">
 					<img src={Drop} alt="Humidity" />
 					<div className="ml-2 d-flex flex-column">
 						<HeadingXS className="mb-1">Humidity</HeadingXS>
-						<BodyNormal>47%</BodyNormal>
+						<BodyNormal>{isOnline ? currentHum + "%" : "-"}</BodyNormal>
 					</div>
 				</ReadingsContainer>
 			</div>
 			<CardFooter className="mt-3">
 				<div>
 					<BodyNormal>
-						<u>Stopped 5 days ago</u>
+						<u>Created {createdAt}</u>
 					</BodyNormal>
 				</div>
 				<div>

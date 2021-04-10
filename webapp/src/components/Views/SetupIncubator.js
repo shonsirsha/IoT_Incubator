@@ -80,6 +80,8 @@ const SetupIncubator = () => {
 		}
 	};
 
+	console.log(incubatorLoading);
+
 	// const authContext = useContext(AuthContext);
 	return (
 		<div className="d-flex flex-column my-auto">
