@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import { Redirect } from "react-router-dom";
 import Header from "../Header/Header";
 import IncubatorList from "../../components/Views/IncubatorList";
+import DetailIncubator from "../../components/Views/DetailIncubator";
+
 import Profile from "../../components/Views/Profile";
 import SetupIncubator from "../../components/Views/SetupIncubator";
 import spinner from "../../loading.gif";
@@ -15,20 +17,45 @@ const StyledSpinner = styled.img`
 `;
 const MainApp = () => {
 	const authContext = useContext(AuthContext);
-	const { authLoading, currentUser, incubators } = authContext;
+	const { authLoading, currentUser } = authContext;
+	const [deviceDetailData, setDeviceDetailData] = useState(null);
+
 	const [view, setView] = useState({
 		id: "DEVICELIST",
 		title: "Your Incubators",
-		el: <IncubatorList btnFunc={() => toSetupnewIncubator(id)} />,
+		el: (
+			<IncubatorList
+				setDeviceDetailData={setDeviceDetailData}
+				btnFunc={() => toSetupnewIncubator()}
+				deviceDetailData={deviceDetailData}
+			/>
+		),
 		backBtn: false,
 	});
-	const { el, title, backBtn, id } = view;
+	useEffect(() => {
+		if (deviceDetailData) {
+			setView({
+				id: "DETAIL",
+				title: "D-123",
+				el: <DetailIncubator deviceDetailData={deviceDetailData} />,
+				mainBtnText: "",
+				backBtn: true,
+			});
+		}
+	}, [deviceDetailData]);
+
+	const { el, title, backBtn } = view;
 	const back = () => {
 		setView({
 			id: "DEVICELIST",
 			title: "Your Incubators",
-			mainBtnText: "Set Up a New Incubator",
-			el: <IncubatorList btnFunc={() => toSetupnewIncubator(id)} />,
+			el: (
+				<IncubatorList
+					setDeviceDetailData={setDeviceDetailData}
+					deviceDetailData={deviceDetailData}
+					btnFunc={() => toSetupnewIncubator()}
+				/>
+			),
 			backBtn: false,
 		});
 	};
@@ -46,7 +73,6 @@ const MainApp = () => {
 			id: "SETUPNEW",
 			title: "New Incubator",
 			el: <SetupIncubator />,
-			mainBtnText: "Set Up Incubator",
 			backBtn: true,
 		});
 	};

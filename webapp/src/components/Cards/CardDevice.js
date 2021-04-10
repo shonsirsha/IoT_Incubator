@@ -51,9 +51,10 @@ export const CardDevice = ({
 	currentTemp,
 	hatchPreset,
 	createdAt,
+	onClick,
 }) => {
 	return (
-		<CardDeviceContainer className={className}>
+		<CardDeviceContainer onClick={onClick} className={className}>
 			<div className="d-flex justify-content-between align-items-center">
 				<HeadingS>{deviceName}</HeadingS>
 				<StatusContainer isonline={isOnline}>

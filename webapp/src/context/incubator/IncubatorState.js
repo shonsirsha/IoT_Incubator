@@ -62,6 +62,7 @@ const IncubatorState = (props) => {
 				active: false,
 				currentTemp: -100,
 				currentHum: -100,
+				deviceId: `${hatchPreset.id}-${createdAt}`,
 			});
 			stopLoading();
 			return true;

@@ -21,7 +21,7 @@ const StyledSpinner = styled.img`
 	height: 48px;
 	margin: auto;
 `;
-const IncubatorList = ({ btnFunc }) => {
+const IncubatorList = ({ btnFunc, setDeviceDetailData }) => {
 	// const authContext = useContext(AuthContext);
 	const incubatorContext = useContext(IncubatorContext);
 
@@ -41,6 +41,9 @@ const IncubatorList = ({ btnFunc }) => {
 								deviceName={x.deviceName}
 								hatchPreset={x.hatchPreset.name}
 								isOnline={x.active}
+								onClick={() => {
+									setDeviceDetailData(x);
+								}}
 								currentHum={x.currentHum}
 								currentTemp={x.currentTemp}
 								createdAt={timeDifference(Date.now(), new Date(x.createdAt))}
