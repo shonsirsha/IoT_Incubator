@@ -16,7 +16,16 @@ const IncubatorState = (props) => {
 	const setupIncubator = async (data) => {
 		startLoading();
 		const { deviceName, createdAt, hatchPreset } = data;
-		await db.ref(deviceName).set({ createdAt, hatchPreset, deviceName });
+		await db
+			.ref(deviceName)
+			.set({
+				createdAt,
+				hatchPreset,
+				deviceName,
+				active: false,
+				currentTemp: -100,
+				currentHum: -100,
+			});
 		stopLoading();
 	};
 	const startLoading = () => {
