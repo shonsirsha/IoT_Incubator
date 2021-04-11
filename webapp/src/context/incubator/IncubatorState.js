@@ -50,6 +50,15 @@ const IncubatorState = (props) => {
 		});
 	};
 
+	const alterIncubatorStatus = (data) => {
+		const { deviceName, active } = data;
+		db.ref("incubators/" + deviceName).update({ active: !active });
+	};
+
+	const deleteIncubator = (deviceName) => {
+		db.ref("incubators/" + deviceName).remove();
+	};
+
 	const setupIncubator = async (data) => {
 		startLoading();
 		const { deviceName, createdAt, hatchPreset } = data;
@@ -94,6 +103,8 @@ const IncubatorState = (props) => {
 				setupIncubator,
 				checkIfExists,
 				getAllIncubators,
+				deleteIncubator,
+				alterIncubatorStatus,
 			}}
 		>
 			{props.children}

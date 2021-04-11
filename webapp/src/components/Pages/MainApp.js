@@ -36,7 +36,7 @@ const MainApp = () => {
 		if (deviceDetailData) {
 			setView({
 				id: "DETAIL",
-				title: "D-123",
+				title: deviceDetailData.deviceName,
 				el: <DetailIncubator deviceDetailData={deviceDetailData} />,
 				mainBtnText: "",
 				backBtn: true,
