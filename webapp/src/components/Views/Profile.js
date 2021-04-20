@@ -18,7 +18,7 @@ const Profile = () => {
 		<div className="d-flex flex-column">
 			<BodyNormal>
 				{incubators.length > 0 ? (
-					<>You have, in total {incubators.length} incubators</>
+					<>You have in total {incubators.length} incubators</>
 				) : (
 					<>
 						You currently have no incubator. Go back and set up a new one now!
