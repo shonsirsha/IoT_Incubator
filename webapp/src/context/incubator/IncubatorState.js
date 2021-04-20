@@ -52,7 +52,10 @@ const IncubatorState = (props) => {
 
 	const alterIncubatorStatus = (data) => {
 		const { deviceName, active } = data;
-		db.ref("incubators/" + deviceName).update({ active: !active });
+		db.ref("incubators/" + deviceName).update({
+			active: !active,
+			shouldBeActive: !active,
+		});
 	};
 
 	const deleteIncubator = (deviceName) => {
@@ -69,6 +72,7 @@ const IncubatorState = (props) => {
 				hatchPreset,
 				deviceName,
 				active: false,
+				shouldBeActive: true,
 				currentTemp: -100,
 				currentHum: -100,
 				deviceId: `${hatchPreset.id}-${createdAt}`,
