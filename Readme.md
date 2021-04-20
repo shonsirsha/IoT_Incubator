@@ -19,7 +19,7 @@ For fertilised eggs to hatch, there are some variables to keep in mind, such as:
 
 The development & the use of this smart incubator is in hopes of maximising the rate of hatch of the eggs while being cost effective and environmental friendly due to its nature of using some materials that are regarded as scraps / waste for most people (commonly referred as upcycling ♻️.). For example, the incubator is from used cardboard box and it is leveraging the power of IoT in current days ⚡ 👨‍💻.
 
-Web App / Live Demo: Coming Soon.
+**Web App / Live Demo: [here](https://smart-incubator.netlify.app/app).**
 
 🥚 &nbsp;➡️ &nbsp;🐣 &nbsp;➡️ &nbsp;🐥 &nbsp;➡️ &nbsp;🐓 ➡️ &nbsp;🍗
 
@@ -35,7 +35,7 @@ Web App / Live Demo: Coming Soon.
 
 Read the entire project documentation (all the devices used and its reasons, and high level diagram): [here](https://docs.google.com/document/d/1mxj_BMj2L9t08ct8H3UyUC8Iw47t3ddjCCNoUKCeipc/edit?usp=sharing)
 
-See the more detailed diagram for the incubator: [here](somelink)
+See the schematic diagram for the incubator: [here](https://drive.google.com/file/d/1ia_JC_gOGSWNLD4Ac3hA5Idx0zuUnNhe/view)
 
 **In simple terms**, users can set a desired temperature and humidity of the incubator via the frontend, as well as monitoring the current readings in 'real time'.
 
