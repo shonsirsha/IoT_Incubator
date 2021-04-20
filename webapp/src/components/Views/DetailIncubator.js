@@ -116,14 +116,46 @@ const DetailIncubator = ({ deviceDetailData }) => {
 						</StyledHeadingXS2>
 
 						<StyledBodyNormal2 className="mt-2" active={deviceDetail.active}>
-							Hatch preset: {deviceDetail.hatchPreset.name}
+							Hatch preset: {deviceDetail.hatchPreset.name} (
+							{deviceDetailData.hatchPreset.minTemp}-{" "}
+							{deviceDetailData.hatchPreset.maxTemp}°C at{" "}
+							{deviceDetailData.hatchPreset.minHum}-
+							{deviceDetailData.hatchPreset.maxHum}% relative humidity)
 						</StyledBodyNormal2>
 
 						<StyledBodyNormal2 className="mt-1" active={deviceDetail.active}>
-							Heating: {deviceDetail.active ? <>S</> : "-"}
+							Heating:{" "}
+							{deviceDetail.active ? (
+								<>
+									{deviceDetail.currentTemp <
+										deviceDetailData.hatchPreset.minTemp ||
+									deviceDetail.currentTemp <=
+										deviceDetailData.hatchPreset.maxTemp ? (
+										<>ON</>
+									) : (
+										<>OFF</>
+									)}
+								</>
+							) : (
+								"-"
+							)}
 						</StyledBodyNormal2>
 						<StyledBodyNormal2 className="mt-1" active={deviceDetail.active}>
-							Ventilation: {deviceDetail.active ? <>S</> : "-"}
+							Ventilation:{" "}
+							{deviceDetail.active ? (
+								<>
+									{deviceDetail.currentHum <
+										deviceDetailData.hatchPreset.minHum ||
+									deviceDetail.currentHum <=
+										deviceDetailData.hatchPreset.maxHum ? (
+										<>CLOSED</>
+									) : (
+										<>OPENED</>
+									)}
+								</>
+							) : (
+								"-"
+							)}
 						</StyledBodyNormal2>
 						<StyledBodyNormal2 className="mt-5" active={deviceDetail.active}>
 							Incubator created on {createdAt} (
