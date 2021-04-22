@@ -117,10 +117,10 @@ const DetailIncubator = ({ deviceDetailData }) => {
 
 						<StyledBodyNormal2 className="mt-2" active={deviceDetail.active}>
 							Hatch preset: {deviceDetail.hatchPreset.name} (
-							{deviceDetailData.hatchPreset.minTemp}-{" "}
-							{deviceDetailData.hatchPreset.maxTemp}°C at{" "}
-							{deviceDetailData.hatchPreset.minHum}-
-							{deviceDetailData.hatchPreset.maxHum}% relative humidity)
+							{deviceDetail.hatchPreset.minTemp}-{" "}
+							{deviceDetail.hatchPreset.maxTemp}°C at{" "}
+							{deviceDetail.hatchPreset.minHum}-
+							{deviceDetail.hatchPreset.maxHum}% relative humidity)
 						</StyledBodyNormal2>
 
 						<StyledBodyNormal2 className="mt-1" active={deviceDetail.active}>
@@ -128,9 +128,9 @@ const DetailIncubator = ({ deviceDetailData }) => {
 							{deviceDetail.active ? (
 								<>
 									{deviceDetail.currentTemp <
-										deviceDetailData.hatchPreset.minTemp ||
+										deviceDetail.hatchPreset.minTemp ||
 									deviceDetail.currentTemp <=
-										deviceDetailData.hatchPreset.maxTemp ? (
+										deviceDetail.hatchPreset.maxTemp ? (
 										<>ON</>
 									) : (
 										<>OFF</>
@@ -144,10 +144,8 @@ const DetailIncubator = ({ deviceDetailData }) => {
 							Ventilation:{" "}
 							{deviceDetail.active ? (
 								<>
-									{deviceDetail.currentHum <
-										deviceDetailData.hatchPreset.minHum ||
-									deviceDetail.currentHum <=
-										deviceDetailData.hatchPreset.maxHum ? (
+									{deviceDetail.currentHum < deviceDetail.hatchPreset.minHum ||
+									deviceDetail.currentHum <= deviceDetail.hatchPreset.maxHum ? (
 										<>CLOSED</>
 									) : (
 										<>OPENED</>
