@@ -147,7 +147,7 @@ Creating / adding another incubator for the same account:
 
 <span id="errcodes"></span>
 
-## 🚀 &nbsp; Error Codes
+## ❌  &nbsp; Error Codes
 
 You might've encountered an error with specified code shown on the LCD screen.
 
