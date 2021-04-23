@@ -8,6 +8,7 @@
    1. <a href="#setup_iot">IoT Devices (the incubator) 🏡 📡</a>
    2. <a href="#setup_frontend">Frontend 🏡 📱</a>
 4. <a href="#run">How to run this system on a dev env / local machine 🏡 📱 📡</a>
+5. <a href="#errcodes">Error Codes ❌ </a>
 
 <span id="why"></span>
 
@@ -104,7 +105,8 @@ The same case for wiring, if you've wired / assembled the incubator boxed differ
 
 3.&nbsp; Go to `./device` and open `Incubator.ino`
 
-4.&nbsp; Inside `Incubator.ino`, alter `FIREBASE_HOST` and `FIREBASE_AUTH` to the information you <a href="#configDb">stored previously,</a> which are the `databaseURL` and `database secret` respectively.
+4.&nbsp; Inside `Incubator.ino`, alter `FIREBASE_HOST` and `FIREBASE_AUTH` to the information you <a href="#configDb">stored previously,</a> which are the `databaseURL` and `database secret` respectively. Don't forget to alter `WIFI_SSID` and `WIFI_PASSWORD` as well.
+
 <span id="dName"></span>
 
 5.&nbsp; Verify the code on the Arduino IDE to make sure nothing breaks.
@@ -142,3 +144,18 @@ Assuming you have done all the steps above to set-up both the IoT Application an
 Creating / adding another incubator for the same account:
 
 ⭐&nbsp; To add another incubator for the same account, make sure you have another incubator (the IoT Devices) setup properly. Repeat <a href="#s3">steps 3-5</a> for that incubator. Then, repeat the same steps <a href="#run">above</a> (except the first one assuming your frontend app is already running).
+
+<span id="errcodes"></span>
+
+## 🚀 &nbsp; Error Codes
+
+You might've encountered an error with specified code shown on the LCD screen.
+
+Here are the details for it:
+
+1. <kbd>001</kbd> DEVICE NOT FOUND (Create / set up a new incubator on the web app with that same device name)
+2. <kbd>071</kbd> Error on syncing between device and app.
+3. <kbd>081</kbd> Error getting desired temperature from database.
+4. <kbd>082</kbd> Error getting desired humidity from database.
+5. <kbd>091</kbd> Error updating temperature to database.
+6. <kbd>092</kbd> Error updating humidity to database.
