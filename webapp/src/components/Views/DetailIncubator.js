@@ -105,15 +105,15 @@ const DetailIncubator = ({ deviceDetailData }) => {
 							/>
 						</div>
 
-						<StyledHeadingXS2 className="mt-3" active={deviceDetail.active}>
-							{deviceDetailData.hatchPreset.minDays === -1 ? (
-								<>{diffDaysMax} days to go</>
-							) : (
-								<>
-									{diffDaysMin}-{diffDaysMax} days to go
-								</>
-							)}
-						</StyledHeadingXS2>
+// 						<StyledHeadingXS2 className="mt-3" active={deviceDetail.active}>
+// 							{deviceDetailData.hatchPreset.minDays === -1 ? (
+// 								<>{diffDaysMax} days to go</>
+// 							) : (
+// 								<>
+// 									{diffDaysMin}-{diffDaysMax} days to go
+// 								</>
+// 							)}
+// 						</StyledHeadingXS2>
 
 						<StyledBodyNormal2 className="mt-2" active={deviceDetail.active}>
 							Hatch preset: {deviceDetail.hatchPreset.name} (
@@ -123,38 +123,38 @@ const DetailIncubator = ({ deviceDetailData }) => {
 							{deviceDetail.hatchPreset.maxHum}% relative humidity)
 						</StyledBodyNormal2>
 
-						<StyledBodyNormal2 className="mt-1" active={deviceDetail.active}>
-							Heating:{" "}
-							{deviceDetail.active ? (
-								<>
-									{deviceDetail.currentTemp <
-										deviceDetail.hatchPreset.minTemp ||
-									deviceDetail.currentTemp <=
-										deviceDetail.hatchPreset.maxTemp ? (
-										<>ON</>
-									) : (
-										<>OFF</>
-									)}
-								</>
-							) : (
-								"-"
-							)}
-						</StyledBodyNormal2>
-						<StyledBodyNormal2 className="mt-1" active={deviceDetail.active}>
-							Ventilation:{" "}
-							{deviceDetail.active ? (
-								<>
-									{deviceDetail.currentHum < deviceDetail.hatchPreset.minHum ||
-									deviceDetail.currentHum <= deviceDetail.hatchPreset.maxHum ? (
-										<>CLOSED</>
-									) : (
-										<>OPENED</>
-									)}
-								</>
-							) : (
-								"-"
-							)}
-						</StyledBodyNormal2>
+// 						<StyledBodyNormal2 className="mt-1" active={deviceDetail.active}>
+// 							Heating:{" "}
+// 							{deviceDetail.active ? (
+// 								<>
+// 									{deviceDetail.currentTemp <
+// 										deviceDetail.hatchPreset.minTemp ||
+// 									deviceDetail.currentTemp <=
+// 										deviceDetail.hatchPreset.maxTemp ? (
+// 										<>ON</>
+// 									) : (
+// 										<>OFF</>
+// 									)}
+// 								</>
+// 							) : (
+// 								"-"
+// 							)}
+// 						</StyledBodyNormal2>
+// 						<StyledBodyNormal2 className="mt-1" active={deviceDetail.active}>
+// 							Ventilation:{" "}
+// 							{deviceDetail.active ? (
+// 								<>
+// 									{deviceDetail.currentHum < deviceDetail.hatchPreset.minHum ||
+// 									deviceDetail.currentHum <= deviceDetail.hatchPreset.maxHum ? (
+// 										<>CLOSED</>
+// 									) : (
+// 										<>OPENED</>
+// 									)}
+// 								</>
+// 							) : (
+// 								"-"
+// 							)}
+// 						</StyledBodyNormal2>
 						<StyledBodyNormal2 className="mt-5" active={deviceDetail.active}>
 							Incubator created on {createdAt} (
 							{timeDifference(Date.now(), new Date(deviceDetailData.createdAt))}
